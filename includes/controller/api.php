@@ -45,15 +45,9 @@ function api_controller()
         return;
     }
 
-    $result = '';
-
-    switch ($resource) {
-        case 'shifts':
-            $result = getApiShifts();
-            break;
-        default:
-            error('Unknown resource %s', $resource);
+    if ($resource == 'news') {
+        require_once realpath(__DIR__ . '/rest/news.php');
+        handle_News();
     }
-
-    return $result;
 }
+?>
