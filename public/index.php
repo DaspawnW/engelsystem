@@ -34,8 +34,7 @@ if (isset($_REQUEST['p'])
 
       if ($p == "api") {
         require_once realpath(__DIR__ . '/../includes/controller/api.php');
-        echo json_encode(api_controller());
-        die();
+        api_controller();
       } elseif ($p == "ical") {
         require_once realpath(__DIR__ . '/../includes/pages/user_ical.php');
         user_ical();

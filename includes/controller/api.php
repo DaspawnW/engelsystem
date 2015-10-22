@@ -48,6 +48,13 @@ function api_controller()
     if ($resource == 'news') {
         require_once realpath(__DIR__ . '/rest/news.php');
         handle_News();
+        return;
     }
+
+   header("Content-Type: application/json; charset=utf-8");
+   http_response_code(404);
+   echo json_encode(array(
+       'error' => 'resource not found'
+   ));
 }
 ?>
