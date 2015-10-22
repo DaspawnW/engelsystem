@@ -6,6 +6,7 @@
 * {
 *   api_token: "TOKEN"
 *  }
+*The API_Key is important, to save the api before unallowed acces. Every user has his own api key and can change him, so the risc, that the api key is stolen is very small.
 */
 function getAPIKey() {
   header("Content-Type: application/json; charset=utf-8");
