@@ -20,6 +20,7 @@ $free_pages = array(
     'shifts',
     'atom',
     'login',
+    'api_key',
     'dashboard',
 );
 
@@ -38,8 +39,7 @@ if (isset($_REQUEST['p'])
 
       if ($p == "api") {
         require_once realpath(__DIR__ . '/../includes/controller/api.php');
-        echo json_encode(api_controller());
-        die();
+        api_controller();
       } elseif ($p == "ical") {
         require_once realpath(__DIR__ . '/../includes/pages/user_ical.php');
         user_ical();
@@ -162,7 +162,10 @@ if (isset($_REQUEST['p'])
         require_once realpath(__DIR__ . '/../includes/pages/dashboard.php');
         $title = getDashboardTitle();
         $content = get_dashboard();
-      } else {
+      } elseif ($p == "api_key") {
+        require_once realpath(__DIR__ . '/../includes/controller/api_key.php');
+        $content = getAPIKey();
+      }  else {
         require_once realpath(__DIR__ . '/../includes/pages/guest_start.php');
         $content = guest_start();
       }
